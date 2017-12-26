@@ -14,32 +14,37 @@
               companyCopyright="">
   <MAINGROUP id="ROQpFu" name="tremolo">
     <GROUP id="{FDAA45F8-4300-3A3D-0E8F-71421C40824D}" name="Library">
-      <FILE id="Olg4yZ" name="Colors.cpp" compile="1" resource="0" file="../Library/Colors.cpp"/>
-      <FILE id="dQFtoS" name="Colors.h" compile="0" resource="0" file="../Library/Colors.h"/>
-      <FILE id="YBCexh" name="DialLookAndFeel.cpp" compile="1" resource="0"
-            file="../Library/DialLookAndFeel.cpp"/>
-      <FILE id="LLNyxB" name="DialLookAndFeel.h" compile="0" resource="0"
-            file="../Library/DialLookAndFeel.h"/>
-      <FILE id="RipHh7" name="Drawing.cpp" compile="1" resource="0" file="../Library/Drawing.cpp"/>
-      <FILE id="gsEg69" name="Drawing.h" compile="0" resource="0" file="../Library/Drawing.h"/>
-      <FILE id="ac7LIK" name="DSP.cpp" compile="1" resource="0" file="../Library/DSP.cpp"/>
-      <FILE id="WVHtbq" name="DSP.h" compile="0" resource="0" file="../Library/DSP.h"/>
-      <FILE id="HWUNjy" name="Grid.cpp" compile="1" resource="0" file="../Library/Grid.cpp"/>
-      <FILE id="VLAa4f" name="Grid.h" compile="0" resource="0" file="../Library/Grid.h"/>
-      <FILE id="Wl91zx" name="Logo.cpp" compile="1" resource="0" file="../Library/Logo.cpp"/>
-      <FILE id="kLwHz0" name="Logo.h" compile="0" resource="0" file="../Library/Logo.h"/>
-      <FILE id="Q26BEf" name="Ruler.cpp" compile="1" resource="0" file="../Library/Ruler.cpp"/>
-      <FILE id="JDderq" name="Ruler.h" compile="0" resource="0" file="../Library/Ruler.h"/>
-      <FILE id="ho3rtJ" name="Tonerig.h" compile="0" resource="0" file="../Library/Tonerig.h"/>
-      <FILE id="reSlDX" name="TonerigButton.cpp" compile="1" resource="0"
-            file="../Library/TonerigButton.cpp"/>
-      <FILE id="vbYIC9" name="TonerigButton.h" compile="0" resource="0" file="../Library/TonerigButton.h"/>
-      <FILE id="ccQz6R" name="TonerigLabel.cpp" compile="1" resource="0"
-            file="../Library/TonerigLabel.cpp"/>
-      <FILE id="cSei2G" name="TonerigLabel.h" compile="0" resource="0" file="../Library/TonerigLabel.h"/>
-      <FILE id="BXpIZq" name="TonerigSlider.cpp" compile="1" resource="0"
-            file="../Library/TonerigSlider.cpp"/>
-      <FILE id="NekaCk" name="TonerigSlider.h" compile="0" resource="0" file="../Library/TonerigSlider.h"/>
+      <GROUP id="{54EA439E-966C-AB91-7253-D6EBFD4A7F3C}" name="Dsp">
+        <FILE id="QZsToR" name="DSP.cpp" compile="1" resource="0" file="Library/Dsp/DSP.cpp"/>
+        <FILE id="p9Ur1a" name="DSP.h" compile="0" resource="0" file="Library/Dsp/DSP.h"/>
+      </GROUP>
+      <GROUP id="{37BADBDE-4AB5-2AC6-B600-AF033DA8A485}" name="Gui">
+        <FILE id="DZiKeI" name="Colors.cpp" compile="1" resource="0" file="Library/Gui/Colors.cpp"/>
+        <FILE id="QAgmRL" name="Colors.h" compile="0" resource="0" file="Library/Gui/Colors.h"/>
+        <FILE id="lQJzby" name="DialLookAndFeel.cpp" compile="1" resource="0"
+              file="Library/Gui/DialLookAndFeel.cpp"/>
+        <FILE id="XnticO" name="DialLookAndFeel.h" compile="0" resource="0"
+              file="Library/Gui/DialLookAndFeel.h"/>
+        <FILE id="IM8qlt" name="Grid.cpp" compile="1" resource="0" file="Library/Gui/Grid.cpp"/>
+        <FILE id="VnO1go" name="Grid.h" compile="0" resource="0" file="Library/Gui/Grid.h"/>
+        <FILE id="WqxS8Y" name="Gui.cpp" compile="1" resource="0" file="Library/Gui/Gui.cpp"/>
+        <FILE id="a2CvLE" name="Gui.h" compile="0" resource="0" file="Library/Gui/Gui.h"/>
+        <FILE id="dyOo3o" name="Logo.cpp" compile="1" resource="0" file="Library/Gui/Logo.cpp"/>
+        <FILE id="Cc1kdQ" name="Logo.h" compile="0" resource="0" file="Library/Gui/Logo.h"/>
+        <FILE id="KSQH52" name="Ruler.cpp" compile="1" resource="0" file="Library/Gui/Ruler.cpp"/>
+        <FILE id="UdihW6" name="Ruler.h" compile="0" resource="0" file="Library/Gui/Ruler.h"/>
+        <FILE id="XgK5Xx" name="Tonerig.h" compile="0" resource="0" file="Library/Gui/Tonerig.h"/>
+        <FILE id="ukcPEe" name="TonerigButton.cpp" compile="1" resource="0"
+              file="Library/Gui/TonerigButton.cpp"/>
+        <FILE id="IUKwNi" name="TonerigButton.h" compile="0" resource="0" file="Library/Gui/TonerigButton.h"/>
+        <FILE id="Hs2Cho" name="TonerigLabel.cpp" compile="1" resource="0"
+              file="Library/Gui/TonerigLabel.cpp"/>
+        <FILE id="Ph76RO" name="TonerigLabel.h" compile="0" resource="0" file="Library/Gui/TonerigLabel.h"/>
+        <FILE id="HHxgfN" name="TonerigSlider.cpp" compile="1" resource="0"
+              file="Library/Gui/TonerigSlider.cpp"/>
+        <FILE id="OIihoW" name="TonerigSlider.h" compile="0" resource="0" file="Library/Gui/TonerigSlider.h"/>
+      </GROUP>
+      <FILE id="iySmAJ" name="readme.md" compile="0" resource="0" file="Library/readme.md"/>
     </GROUP>
     <GROUP id="{80E7DBB3-83DE-2DBB-310E-D1CA036EF13C}" name="Source">
       <FILE id="MSWgKC" name="PluginProcessor.cpp" compile="1" resource="0"

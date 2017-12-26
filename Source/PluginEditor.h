@@ -12,7 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
-#include "../../Library/Tonerig.h"
+#include "../Library/Gui/Gui.h"
 
 
 //==============================================================================

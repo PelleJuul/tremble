@@ -10,7 +10,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include "../../Library/Tonerig.h"
+#include "../Library/Gui/Gui.h"
 
 
 //==============================================================================
