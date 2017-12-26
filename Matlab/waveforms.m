@@ -30,11 +30,10 @@ plot(t,sineWave,t,squareWave,t,sawtoothWave,t,triangleWave);
 %% Change ratio between positive and negative half-period (sine)
 
 fs = 44100;
-posToNegRatio = 0.82;
+posToNegRatio = 0.5;
 
 t = (0:22050*posToNegRatio-1)/fs/posToNegRatio;
 t1 = (22050:44100)/fs;
-f = 1;
 
 sin1 = sin(2*pi*f*t);
 sin2 = sin(2*pi*f*t1);
