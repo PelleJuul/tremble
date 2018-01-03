@@ -1,5 +1,5 @@
-r = 0.5;
-f = 4.0;
+r = 0.25;
+f = 2.0;
 fs = 44100;
 n = fs;
 T = (1:n) / fs;
@@ -16,7 +16,7 @@ if a > 1
 end
 
 for i = 1:n
-  t = mod(T(i), 2 * pi);
+  t = T(i); %mod(T(i), 2 * pi);
   w = mod(2 * pi * f * t, 2 * pi);
   
   if w < 2 * pi * r
@@ -27,4 +27,5 @@ for i = 1:n
 end
 
 plot(T, Yp);
+ylim([-1 1]);
 grid on;
