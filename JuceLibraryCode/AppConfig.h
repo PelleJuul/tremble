@@ -291,13 +291,13 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "tremolo"
+ #define JucePlugin_Name                   "Tremble"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "tremolo"
+ #define JucePlugin_Desc                   "Tremble tremolo plug-in"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "yourcompany"
+ #define JucePlugin_Manufacturer           "Tonerig"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
  #define JucePlugin_ManufacturerWebsite    ""
@@ -306,7 +306,7 @@
  #define JucePlugin_ManufacturerEmail      ""
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       0x4d616e75 // 'Manu'
+ #define JucePlugin_ManufacturerCode       0x544e5247 // 'TNRG'
 #endif
 #ifndef  JucePlugin_PluginCode
  #define JucePlugin_PluginCode             0x417a646e // 'Azdn'
@@ -348,16 +348,16 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         tremoloAU
+ #define JucePlugin_AUExportPrefix         TrembleAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "tremoloAU"
+ #define JucePlugin_AUExportPrefixQuoted   "TrembleAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.yourcompany.tremolo
+ #define JucePlugin_CFBundleIdentifier     com.tonerig.tremble
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           ePlugInCategory_None
@@ -375,7 +375,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.yourcompany.tremolo
+ #define JucePlugin_AAXIdentifier          com.tonerig.tremble
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -399,5 +399,5 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "yourcompany: tremolo"
+ #define JucePlugin_IAAName                "Tonerig: Tremble"
 #endif

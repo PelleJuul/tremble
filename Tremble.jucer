@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="AZdnuh" name="tremolo" displaySplashScreen="1" reportAppUsage="1"
+<JUCERPROJECT id="AZdnuh" name="Tremble" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="com.yourcompany.tremolo" includeBinaryInAppConfig="1"
+              bundleIdentifier="com.tonerig.tremble" includeBinaryInAppConfig="1"
               cppLanguageStandard="11" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="0" pluginName="tremolo" pluginDesc="tremolo" pluginManufacturer="yourcompany"
-              pluginManufacturerCode="Manu" pluginCode="Azdn" pluginChannelConfigs=""
-              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
-              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="tremoloAU"
-              pluginRTASCategory="" aaxIdentifier="com.yourcompany.tremolo"
+              enableIAA="0" pluginName="Tremble" pluginDesc="Tremble tremolo plug-in"
+              pluginManufacturer="Tonerig" pluginManufacturerCode="TNRG" pluginCode="Azdn"
+              pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
+              pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="TrembleAU" pluginRTASCategory="" aaxIdentifier="com.tonerig.tremble"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.2.0"
               companyCopyright="">
-  <MAINGROUP id="ROQpFu" name="tremolo">
+  <MAINGROUP id="ROQpFu" name="Tremble">
     <GROUP id="{FDAA45F8-4300-3A3D-0E8F-71421C40824D}" name="Library">
       <GROUP id="{54EA439E-966C-AB91-7253-D6EBFD4A7F3C}" name="Dsp">
         <FILE id="QZsToR" name="DSP.cpp" compile="1" resource="0" file="Library/Dsp/DSP.cpp"/>
@@ -33,7 +33,18 @@
         <FILE id="Cc1kdQ" name="Logo.h" compile="0" resource="0" file="Library/Gui/Logo.h"/>
         <FILE id="KSQH52" name="Ruler.cpp" compile="1" resource="0" file="Library/Gui/Ruler.cpp"/>
         <FILE id="UdihW6" name="Ruler.h" compile="0" resource="0" file="Library/Gui/Ruler.h"/>
-        <FILE id="XgK5Xx" name="Tonerig.h" compile="0" resource="0" file="Library/Gui/Tonerig.h"/>
+        <FILE id="vzv1sy" name="SeriesADialLook.cpp" compile="1" resource="0"
+              file="Library/Gui/SeriesADialLook.cpp"/>
+        <FILE id="LVv8dc" name="SeriesADialLook.h" compile="0" resource="0"
+              file="Library/Gui/SeriesADialLook.h"/>
+        <FILE id="Iempdb" name="SeriesASliderLook.cpp" compile="1" resource="0"
+              file="Library/Gui/SeriesASliderLook.cpp"/>
+        <FILE id="mWSokX" name="SeriesASliderLook.h" compile="0" resource="0"
+              file="Library/Gui/SeriesASliderLook.h"/>
+        <FILE id="iAiacl" name="SeriesAToggleToggleLook.cpp" compile="1" resource="0"
+              file="Library/Gui/SeriesAToggleToggleLook.cpp"/>
+        <FILE id="gzMKXf" name="SeriesAToggleToggleLook.h" compile="0" resource="0"
+              file="Library/Gui/SeriesAToggleToggleLook.h"/>
         <FILE id="ukcPEe" name="TonerigButton.cpp" compile="1" resource="0"
               file="Library/Gui/TonerigButton.cpp"/>
         <FILE id="IUKwNi" name="TonerigButton.h" compile="0" resource="0" file="Library/Gui/TonerigButton.h"/>
@@ -47,6 +58,14 @@
       <FILE id="iySmAJ" name="readme.md" compile="0" resource="0" file="Library/readme.md"/>
     </GROUP>
     <GROUP id="{80E7DBB3-83DE-2DBB-310E-D1CA036EF13C}" name="Source">
+      <FILE id="kYOGc5" name="DialLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/DialLookAndFeel.cpp"/>
+      <FILE id="lcmIlx" name="DialLookAndFeel.h" compile="0" resource="0"
+            file="Source/DialLookAndFeel.h"/>
+      <FILE id="QTNT5G" name="Tremble.cpp" compile="1" resource="0" file="Source/Tremble.cpp"/>
+      <FILE id="t6sXCE" name="Tremble.h" compile="0" resource="0" file="Source/Tremble.h"/>
+      <FILE id="prsBTR" name="Looks.cpp" compile="1" resource="0" file="Source/Looks.cpp"/>
+      <FILE id="jsL4qC" name="Looks.h" compile="0" resource="0" file="Source/Looks.h"/>
       <FILE id="MSWgKC" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="Ty74Wi" name="PluginProcessor.h" compile="0" resource="0"
@@ -54,6 +73,14 @@
       <FILE id="pTziV0" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="YgkRP2" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{7B7D2900-E36B-B34B-743A-3C67B2108E28}" name="Resources">
+      <FILE id="Hf3jZW" name="Montserrat-BlackItalic.otf" compile="0" resource="1"
+            file="Resources/Montserrat-BlackItalic.otf"/>
+      <FILE id="wUbOg5" name="Montserrat-BoldItalic.otf" compile="0" resource="1"
+            file="Resources/Montserrat-BoldItalic.otf"/>
+      <FILE id="MiKECY" name="Montserrat-MediumItalic.otf" compile="0" resource="1"
+            file="Resources/Montserrat-MediumItalic.otf"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
