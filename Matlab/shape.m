@@ -1,7 +1,7 @@
-r = 0.25;
-f = 2.0;
+r = 0.5;
+f = 220.0;
 fs = 44100;
-n = fs;
+n = fs * 2;
 T = (1:n) / fs;
 Yp = 0;
 Ym = 0;
@@ -26,6 +26,4 @@ for i = 1:n
   end
 end
 
-plot(T, Yp);
-ylim([-1 1]);
-grid on;
+soundsc(Yp, fs)

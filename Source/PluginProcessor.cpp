@@ -49,6 +49,41 @@ TremoloAudioProcessor::TremoloAudioProcessor()
                                      0.5,
                                      nullptr,
                                      nullptr);
+    parameters.createAndAddParameter("sin",
+                                     "sin",
+                                     "",
+                                     NormalisableRange<float>(0.0, 1.0),
+                                     1.0,
+                                     nullptr,
+                                     nullptr);
+    parameters.createAndAddParameter("saw",
+                                     "saw",
+                                     "",
+                                     NormalisableRange<float>(0.0, 1.0),
+                                     1.0,
+                                     nullptr,
+                                     nullptr);
+    parameters.createAndAddParameter("sqr",
+                                     "sqr",
+                                     "",
+                                     NormalisableRange<float>(0.0, 1.0),
+                                     0.0,
+                                     nullptr,
+                                     nullptr);
+    parameters.createAndAddParameter("lfn",
+                                     "lfn",
+                                     "",
+                                     NormalisableRange<float>(0.0, 1.0),
+                                     0.0,
+                                     nullptr,
+                                     nullptr);
+    parameters.createAndAddParameter("balance",
+                                     "balance",
+                                     "",
+                                     NormalisableRange<float>(0.0, 1.0),
+                                     0.5,
+                                     nullptr,
+                                     nullptr);
 }
 
 TremoloAudioProcessor::~TremoloAudioProcessor()
@@ -122,6 +157,7 @@ void TremoloAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    tremble.prepare(sampleRate);
 }
 
 void TremoloAudioProcessor::releaseResources()
@@ -160,12 +196,6 @@ void TremoloAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
@@ -175,24 +205,25 @@ void TremoloAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     {
         juce::AudioPlayHead::CurrentPositionInfo currentPositionInfo;
         playHead->getCurrentPosition(currentPositionInfo);
-        time = currentPositionInfo.timeInSamples * 1.0 / getSampleRate();
+        
+        if (currentPositionInfo.isPlaying)
+            time = currentPositionInfo.timeInSamples * 1.0 / getSampleRate();
     }
     
-    float speed = *parameters.getRawParameterValue("speed");
-    float phase = *parameters.getRawParameterValue("phase");
-    float depth = *parameters.getRawParameterValue("depth");
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
+    tremble.speed = *parameters.getRawParameterValue("speed");
+    tremble.phase = *parameters.getRawParameterValue("phase");
+    tremble.depth = *parameters.getRawParameterValue("depth");
+    tremble.sinAmp = *parameters.getRawParameterValue("sin");
+    tremble.sawAmp = *parameters.getRawParameterValue("saw");
+    tremble.sqrAmp = *parameters.getRawParameterValue("sqr");
+    tremble.lfnAmp = *parameters.getRawParameterValue("lfn");
+    tremble.lfnCutoff = 10 + *parameters.getRawParameterValue("speed");
+    tremble.balance = *parameters.getRawParameterValue("balance");
+
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        float* channelData = buffer.getWritePointer(channel);
-        
-        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
-        {
-            float x = channelData[sample];
-            float t = time + sample / getSampleRate();
-            channelData[sample] = processSample(x, t, speed, phase, depth);
-        }
+        float *data = buffer.getWritePointer(channel);
+        tremble.process(data, buffer.getNumSamples(), time);
     }
     
     time += buffer.getNumSamples() / getSampleRate();

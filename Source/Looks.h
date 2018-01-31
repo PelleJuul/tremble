@@ -15,6 +15,9 @@ struct Looks
 {
     Looks();
     void setLabelLooks(Label *label);
+    void setAltLabelLooks(Label *label);
+    void setDisplayLooks(Label *label);
+    void setAltDisplayLooks(Label *label);
     
     Font titleFont;
     Font headerFont;
@@ -25,4 +28,5 @@ struct Looks
     Colour darkColor;
     Colour lightColor;
     Colour mainColor;
+    Colour positiveColor;
 };

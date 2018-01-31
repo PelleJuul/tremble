@@ -14,8 +14,12 @@
 #include "PluginProcessor.h"
 #include "Looks.h"
 #include "DialLookAndFeel.h"
-#include "../Library/Gui/TonerigSlider.h"
-
+#include "SliderLookAndFeel.h"
+#include "ButtonLookAndFeel.h"
+#include "Canvas.h"
+#include "Tremble.h"
+#include "../Library/Gui/Gui.h"
+#include "Button.h"
 
 //==============================================================================
 /**
@@ -35,54 +39,63 @@ private:
     // access the processor object that created it.
     TremoloAudioProcessor& processor;
     AudioProcessorValueTreeState& valueTreeState;
+    Tremble tremble;
     Looks looks;
     DialLookAndFeel dialLookAndFeel;
+    SliderLookAndFeel sliderLookAndFeel;
+    ButtonLookAndFeel buttonLookAndFeel;
     
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> speedAttachment;
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> phaseAttachment;
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> depthAttachment;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> sinAttachment;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> sawAttachment;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> sqrAttachment;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> lfnAttachment;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> balAttachment;
     
     Label titleLabel;
+    Canvas canvas;
     Label waveHeader;
     
     tonerig::TonerigSlider speedDial;
     Label speedLabel;
-    Label speedDisplay;
+    tonerig::TonerigLabel speedDisplay;
     
-    ToggleButton syncButton;
+    tnrg::Button syncButton;
     Label syncLabel;
-    Label syncDisplay;
+    tonerig::TonerigLabel syncDisplay;
     
     tonerig::TonerigSlider phaseDial;
     Label phaseLabel;
-    Label phaseDisplay;
+    tonerig::TonerigLabel phaseDisplay;
     
     tonerig::TonerigSlider depthDial;
     Label depthLabel;
-    Label depthDisplay;
+    tonerig::TonerigLabel depthDisplay;
     
     tonerig::TonerigSlider sinSlider;
     Label sinLabel;
-    Label sinDisplay;
+    tonerig::TonerigLabel sinDisplay;
     
-    tonerig::TonerigSlider triSlider;
+    tonerig::TonerigSlider sawSlider;
     Label triLabel;
-    Label triDisplay;
+    tonerig::TonerigLabel triDisplay;
     
     tonerig::TonerigSlider sqrSlider;
     Label sqrLabel;
-    Label sqrDisplay;
+    tonerig::TonerigLabel sqrDisplay;
     
-    tonerig::TonerigSlider noiseSlider;
+    tonerig::TonerigSlider lfnSlider;
     Label noiseLabel;
-    Label noiseDisplay;
+    tonerig::TonerigLabel noiseDisplay;
     
     tonerig::TonerigSlider balanceSlider;
     Label balanceLabel;
-    Label balanceDisplay;
+    tonerig::TonerigLabel balanceDisplay;
     
     Label tooltipLabel;
-    TextButton infoButton;
+    tonerig::TonerigLabel infoLink;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TremoloAudioProcessorEditor)
 };

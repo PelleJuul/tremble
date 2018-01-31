@@ -11,6 +11,7 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Tremble.h"
 
 
 //==============================================================================
@@ -61,5 +62,6 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TremoloAudioProcessor)
     AudioProcessorValueTreeState parameters;
     inline float processSample(float x, float t, float speed, float phase, float depth) const;
+    Tremble tremble;
     float time;
 };

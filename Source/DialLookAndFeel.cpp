@@ -19,7 +19,7 @@ DialLookAndFeel::DialLookAndFeel(const Looks &looks) : looks(looks)
 void DialLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
                            const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider)
 {
-    float margin = 3.0;
+    float margin = 2.0;
     x += margin;
     y += margin;
     width -= margin * 2;
@@ -33,7 +33,7 @@ void DialLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, in
     g.setColour(looks.mainColor);
     g.fillEllipse(x, y, diameter, diameter);
     g.setColour(looks.lightColor);
-    g.drawEllipse(x, y, diameter, diameter, 5);
+    g.drawEllipse(x, y, diameter, diameter, 4);
     float l = diameter / 4;
     float sina = std::sin(angle);
     float cosa = std::cos(angle);

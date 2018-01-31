@@ -3,7 +3,7 @@
 <JUCERPROJECT id="AZdnuh" name="Tremble" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.tonerig.tremble" includeBinaryInAppConfig="1"
-              cppLanguageStandard="11" buildVST="1" buildVST3="0" buildAU="1"
+              cppLanguageStandard="14" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="0" pluginName="Tremble" pluginDesc="Tremble tremolo plug-in"
               pluginManufacturer="Tonerig" pluginManufacturerCode="TNRG" pluginCode="Azdn"
@@ -58,6 +58,18 @@
       <FILE id="iySmAJ" name="readme.md" compile="0" resource="0" file="Library/readme.md"/>
     </GROUP>
     <GROUP id="{80E7DBB3-83DE-2DBB-310E-D1CA036EF13C}" name="Source">
+      <FILE id="CKTnDZ" name="Canvas.cpp" compile="1" resource="0" file="Source/Canvas.cpp"/>
+      <FILE id="K0scAk" name="Canvas.h" compile="0" resource="0" file="Source/Canvas.h"/>
+      <FILE id="eCgF6U" name="Button.cpp" compile="1" resource="0" file="Source/Button.cpp"/>
+      <FILE id="PLFTTd" name="Button.h" compile="0" resource="0" file="Source/Button.h"/>
+      <FILE id="UM52XH" name="ButtonLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/ButtonLookAndFeel.cpp"/>
+      <FILE id="abfjNs" name="ButtonLookAndFeel.h" compile="0" resource="0"
+            file="Source/ButtonLookAndFeel.h"/>
+      <FILE id="HkCYlC" name="SliderLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/SliderLookAndFeel.cpp"/>
+      <FILE id="MkfVXc" name="SliderLookAndFeel.h" compile="0" resource="0"
+            file="Source/SliderLookAndFeel.h"/>
       <FILE id="kYOGc5" name="DialLookAndFeel.cpp" compile="1" resource="0"
             file="Source/DialLookAndFeel.cpp"/>
       <FILE id="lcmIlx" name="DialLookAndFeel.h" compile="0" resource="0"
@@ -107,6 +119,7 @@
         <MODULEPATH id="juce_audio_processors" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017">
@@ -134,6 +147,7 @@
         <MODULEPATH id="juce_audio_processors" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
@@ -148,6 +162,7 @@
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

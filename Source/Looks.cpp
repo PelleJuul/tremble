@@ -28,7 +28,8 @@ Looks::Looks()
 {
     darkColor = Colour::Colour(0xFF323232);
     lightColor = Colour::Colour(0xFFe5e5e4);
-    mainColor = Colour::Colour(0xFFfcb614);
+    mainColor = Colour::Colour(0xFFffb700);
+    positiveColor = Colour::Colour(0xFF19a974);
 
     auto montserratBlackItalic = Typeface::createSystemTypefaceFor(
         BinaryData::MontserratBlackItalic_otf,
@@ -46,7 +47,7 @@ Looks::Looks()
     titleFont.setHeight(fontScale * 64);
     titleFont.setExtraKerningFactor(0.02);
     
-    headerFont = Font(montserratMediumItalic);
+    headerFont = Font(montserratBoldItalic);
     headerFont.setHeight(fontScale * 20);
     headerFont.setExtraKerningFactor(0.02);
     
@@ -67,5 +68,26 @@ void Looks::setLabelLooks(Label *label)
 {
     label->setFont(labelFont);
     label->setColour(Label::textColourId, lightColor);
+    label->setJustificationType(Justification::centred);
+}
+
+void Looks::setAltLabelLooks(Label *label)
+{
+    label->setFont(labelFont);
+    label->setColour(Label::textColourId, darkColor);
+    label->setJustificationType(Justification::centred);
+}
+
+void Looks::setDisplayLooks(Label *label)
+{
+    label->setFont(displayFont);
+    label->setColour(Label::textColourId, lightColor);
+    label->setJustificationType(Justification::centred);
+}
+
+void Looks::setAltDisplayLooks(Label *label)
+{
+    label->setFont(displayFont);
+    label->setColour(Label::textColourId, darkColor);
     label->setJustificationType(Justification::centred);
 }
