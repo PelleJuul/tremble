@@ -10,6 +10,7 @@
 
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Biquad.h"
 
 float balancedSin(float x, float r);
 float balancedTri(float x, float r);
@@ -29,8 +30,8 @@ class Tremble
     float lfnCutoff;
     float balance;
     Random rng;
-    IIRFilter lfnFilter;
-    IIRFilter outputFilter;
+    Biquad lfnFilter;
+    Biquad outputFilter;
     
     Tremble();
     float rawWave(float t);

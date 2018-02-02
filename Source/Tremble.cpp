@@ -92,23 +92,21 @@ Tremble::Tremble()
 
 inline float Tremble::rawWave(float t)
 {
-    float w = 2 * M_PI * t * speed + phase;
+    float w = std::fmod(2 * M_PI * t * speed + phase, 2 * M_PI);
+    
     float sinWave = balancedSin(w, balance);
     float triWave = balancedTri(w, balance);
     float sqrWave = balancedSqr(w, balance);
-    auto lfnCoefs = IIRCoefficients::makeLowPass(sampleRate, std::fmax(lfnCutoff, 0.0001));
-    lfnFilter.setCoefficients(lfnCoefs);
-    float r = rng.nextFloat();
-    float lfnWave = r; //lfnFilter.processSingleSampleRaw(r);
-    float ampTotal = sinAmp + sawAmp + sqrAmp; // + lfnAmp;
+    float lfnWave = std::tanh(lfnFilter.process(rng.nextFloat() * 2.0 - 1.0) * 100.0);
+    float ampTotal = sinAmp + sawAmp + sqrAmp + lfnAmp;
     
     if (ampTotal == 0)
         return 0;
 
     float y = sinWave * (sinAmp / ampTotal)
             + triWave * (sawAmp / ampTotal)
-            + sqrWave * (sqrAmp / ampTotal);
-            // + lfnWave * (lfnAmp / ampTotal);
+            + sqrWave * (sqrAmp / ampTotal)
+            + lfnWave * (lfnAmp / ampTotal);
     
     return y;
 }
@@ -117,26 +115,21 @@ void Tremble::prepare(float sampleRate)
 {
     if (sampleRate != this->sampleRate)
     {
-        auto outputCoefs = IIRCoefficients::makeLowPass(sampleRate, 100);
-        outputFilter.setCoefficients(outputCoefs);
+        outputFilter.setCoefs(FilterType::LowPass, sampleRate, 20.0, 1.0);
+        lfnFilter.setCoefs(FilterType::LowPass, sampleRate, 5.0, 1.0);
         
-        auto lfnCoefs = IIRCoefficients::makeLowPass(sampleRate, lfnCutoff);
-        lfnFilter.setCoefficients(lfnCoefs);
         this->sampleRate = sampleRate;
     }
 }
 
 void Tremble::process(float *buffer, int bufferSize, float time)
 {
-    auto outputCoefs = IIRCoefficients::makeLowPass(sampleRate, speed + 5);
-    outputFilter.setCoefficients(outputCoefs);
-    
     for (int i = 0; i < bufferSize; i++)
     {
         float x = buffer[i];
-        float t = time + i / sampleRate;
+        float t = time + (float)i / sampleRate;
         float w = rawWave(t);
-        w = outputFilter.processSingleSampleRaw(w);
+        w = outputFilter.process(w);
         float a = 1 - depth * 0.5 * (1 + w);
         buffer[i] = a * x;
     }

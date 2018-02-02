@@ -60,7 +60,7 @@ TremoloAudioProcessor::TremoloAudioProcessor()
                                      "saw",
                                      "",
                                      NormalisableRange<float>(0.0, 1.0),
-                                     1.0,
+                                     0.0,
                                      nullptr,
                                      nullptr);
     parameters.createAndAddParameter("sqr",
@@ -217,13 +217,15 @@ void TremoloAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     tremble.sawAmp = *parameters.getRawParameterValue("saw");
     tremble.sqrAmp = *parameters.getRawParameterValue("sqr");
     tremble.lfnAmp = *parameters.getRawParameterValue("lfn");
-    tremble.lfnCutoff = 10 + *parameters.getRawParameterValue("speed");
     tremble.balance = *parameters.getRawParameterValue("balance");
 
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    int channel = 0;
+    tremble.process(buffer.getWritePointer(channel), buffer.getNumSamples(), time);
+    
+    // Assume mono for now, but several tremble object should be created.
+    for (int channel = 1; channel < totalNumInputChannels; ++channel)
     {
-        float *data = buffer.getWritePointer(channel);
-        tremble.process(data, buffer.getNumSamples(), time);
+        buffer.copyFrom(channel, 0, buffer, 0, 0, buffer.getNumSamples());
     }
     
     time += buffer.getNumSamples() / getSampleRate();

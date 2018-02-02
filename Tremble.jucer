@@ -58,6 +58,8 @@
       <FILE id="iySmAJ" name="readme.md" compile="0" resource="0" file="Library/readme.md"/>
     </GROUP>
     <GROUP id="{80E7DBB3-83DE-2DBB-310E-D1CA036EF13C}" name="Source">
+      <FILE id="QlIeko" name="Biquad.cpp" compile="1" resource="0" file="Source/Biquad.cpp"/>
+      <FILE id="AjIUIS" name="Biquad.h" compile="0" resource="0" file="Source/Biquad.h"/>
       <FILE id="CKTnDZ" name="Canvas.cpp" compile="1" resource="0" file="Source/Canvas.cpp"/>
       <FILE id="K0scAk" name="Canvas.h" compile="0" resource="0" file="Source/Canvas.h"/>
       <FILE id="eCgF6U" name="Button.cpp" compile="1" resource="0" file="Source/Button.cpp"/>

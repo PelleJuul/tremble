@@ -22,6 +22,12 @@ TremoloAudioProcessorEditor::TremoloAudioProcessorEditor (TremoloAudioProcessor&
     sliderLookAndFeel(looks),
     buttonLookAndFeel(looks)
 {
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << (tremble.rng.nextFloat() * 2.0 - 1) << std::endl;
+    }
+    
+    
     titleLabel.setFont(looks.titleFont);
     titleLabel.setColour(Label::textColourId, looks.lightColor);
     titleLabel.setBounds(30, 30, 400, 72);
@@ -48,7 +54,6 @@ TremoloAudioProcessorEditor::TremoloAudioProcessorEditor (TremoloAudioProcessor&
         tremble.rng.setSeed(42);
         tremble.prepare(sampleRate);
         tremble.speed = 1.0;
-        tremble.lfnCutoff = 500.0;
         float h = canvas.getHeight() / 2.0 - 2.0;
         Path p;
         p.startNewSubPath(0, canvas.getHeight() / 2.0 + h * tremble.rawWave(0));
@@ -56,8 +61,8 @@ TremoloAudioProcessorEditor::TremoloAudioProcessorEditor (TremoloAudioProcessor&
         for (int x = 0; x < canvas.getWidth(); x += 2.0)
         {
             float t = (x / (float)canvas.getWidth());
-            std::cout << t << std::endl;
-            float y = canvas.getHeight() / 2.0 + h * tremble.rawWave(t);
+            float w = tremble.rawWave(t);
+            float y = canvas.getHeight() / 2.0 + h * w;
             p.lineTo(x, y);
         }
         
